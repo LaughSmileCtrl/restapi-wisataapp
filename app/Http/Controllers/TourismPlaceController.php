@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
-
-use function PHPUnit\Framework\isEmpty;
-
 class TourismPlaceController extends Controller
 {
 
@@ -41,9 +38,11 @@ class TourismPlaceController extends Controller
     }
 
    
-    public function update(Request $request, TourismPlace $tourismPlace)
+    public function update(TourismPlaceRequest $request, TourismPlace $tourismPlace)
     {
-        //
+        $tourismPlace->update($request->validated());
+
+        return $tourismPlace;
     }
 
 

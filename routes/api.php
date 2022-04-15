@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function() {
     Route::apiResource('tourism-places', TourismPlaceController::class)
-        ->only(['index', 'store', 'show']);
+        ->only(['index','store','show','update','destroy']);
 
     Route::post('tourism-places/{id}/gallery', [PlaceGalleryController::class, 'store']);
     Route::delete('tourism-places/{id}/gallery/{placeGallery}', [PlaceGalleryController::class, 'destroy']);
